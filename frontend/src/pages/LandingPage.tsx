@@ -15,7 +15,7 @@ export default function LandingPage() {
           <Link to="/dashboard" className="text-sm font-medium text-neutral-400 hover:text-white transition-colors">
             Login
           </Link>
-          <Link to="/dashboard">
+          <Link to="/explore">
             <Button className="bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-semibold rounded-full px-6">
               Get Started
             </Button>
@@ -27,21 +27,21 @@ export default function LandingPage() {
         {/* Hero Section */}
         <section className="relative pt-32 pb-20 px-6 overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-emerald-500/10 blur-[120px] -z-10 rounded-full" />
-          
+
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 text-sm font-medium text-emerald-400 bg-emerald-500/10 rounded-full border border-emerald-500/20">
               <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               Gym Management, Revolutionized
             </div>
-            
+
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight">
               Manage your gym with <span className="text-transparent bg-clip-text bg-gradient-to-br from-emerald-400 to-cyan-500">Iron resolve.</span>
             </h1>
-            
+
             <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto leading-relaxed">
               The all-in-one ledger for modern fitness centers. Track members, process payments, and grow your business with a system built for speed and scale.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <Link to="/dashboard">
                 <Button size="lg" className="h-14 px-8 text-base bg-emerald-500 hover:bg-emerald-600 text-neutral-950 font-bold rounded-full w-full sm:w-auto shadow-[0_0_40px_-10px_rgba(16,185,129,0.5)]">
@@ -59,7 +59,7 @@ export default function LandingPage() {
               <h2 className="text-3xl font-bold tracking-tight mb-4">Everything you need to scale</h2>
               <p className="text-neutral-400">Stop wrestling with spreadsheets. Start building your empire.</p>
             </div>
-            
+
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -104,7 +104,7 @@ export default function LandingPage() {
           </div>
         </section>
       </main>
-      
+
       <footer className="py-8 px-6 border-t border-neutral-800/50 text-center text-sm text-neutral-500">
         <p>&copy; {new Date().getFullYear()} Iron Ledger. All rights reserved.</p>
       </footer>

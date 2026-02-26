@@ -6,12 +6,14 @@ import Payments from "./pages/Payments";
 import Plans from "./pages/Plans";
 import Settings from "./pages/Settings";
 import Expenditure from "./pages/Expenditure";
+import GymSearch from "./pages/GymSearch";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/explore" element={<GymSearch />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/members" element={<Members />} />
         <Route path="/payments" element={<Payments />} />
