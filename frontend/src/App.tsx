@@ -7,6 +7,7 @@ import Plans from "./pages/Plans";
 import Settings from "./pages/Settings";
 import Expenditure from "./pages/Expenditure";
 import GymSearch from "./pages/GymSearch";
+import GymDetails from "./pages/GymDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/explore" element={<GymSearch />} />
+        <Route path="/gym/:gymName" element={<GymDetails />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/members" element={<Members />} />
         <Route path="/payments" element={<Payments />} />

@@ -17,6 +17,7 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { gyms } from "@/data/gyms";
 
 export default function GymSearch() {
     const [state, setState] = useState("");
@@ -28,89 +29,6 @@ export default function GymSearch() {
     const [openState, setOpenState] = useState(false);
     const [openCity, setOpenCity] = useState(false);
     const [openArea, setOpenArea] = useState(false);
-
-    const gyms = [
-        {
-            id: 1,
-            name: "Iron Forge Fitness",
-            state: "Maharashtra",
-            city: "Mumbai",
-            area: "Andheri West",
-            rating: 4.8,
-            price: 2500,
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop"
-        },
-        {
-            id: 2,
-            name: "Titan Strength Club",
-            state: "Maharashtra",
-            city: "Mumbai",
-            area: "Bandra",
-            rating: 4.6,
-            price: 4000,
-            image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop"
-        },
-        {
-            id: 3,
-            name: "Zenith Gym",
-            state: "Karnataka",
-            city: "Bengaluru",
-            area: "Indiranagar",
-            rating: 4.9,
-            price: 3000,
-            image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1470&auto=format&fit=crop"
-        },
-        {
-            id: 4,
-            name: "Spartan Athletics",
-            state: "Delhi",
-            city: "New Delhi",
-            area: "Vasant Kunj",
-            rating: 4.5,
-            price: 2000,
-            image: "https://images.unsplash.com/photo-1558611848-73f7eb4001a1?q=80&w=1471&auto=format&fit=crop"
-        },
-        {
-            id: 5,
-            name: "Muscle Blaze Arena",
-            state: "Gujarat",
-            city: "Ahmedabad",
-            area: "Satellite",
-            rating: 4.7,
-            price: 1800,
-            image: "https://images.unsplash.com/photo-1574680096145-d05b474e2155?q=80&w=1469&auto=format&fit=crop"
-        },
-        {
-            id: 6,
-            name: "Elite Fitness Studio",
-            state: "Maharashtra",
-            city: "Pune",
-            area: "Koregaon Park",
-            rating: 4.9,
-            price: 5000,
-            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1470&auto=format&fit=crop"
-        },
-        {
-            id: 7,
-            name: "Hustle & Muscle",
-            state: "West Bengal",
-            city: "Kolkata",
-            area: "Salt Lake",
-            rating: 4.8,
-            price: 2500,
-            image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop"
-        },
-        {
-            id: 8,
-            name: "Iron Core Gym",
-            state: "West Bengal",
-            city: "Kolkata",
-            area: "New Town",
-            rating: 4.5,
-            price: 1500,
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop"
-        }
-    ];
 
     const uniqueStates = Array.from(new Set(gyms.map(g => g.state)));
     const uniqueCities = Array.from(new Set(gyms.filter(g => !state || g.state === state).map(g => g.city)));
@@ -137,7 +55,7 @@ export default function GymSearch() {
                     <span className="text-xl font-bold tracking-tight">Iron Ledger</span>
                 </Link>
                 <Link to="/dashboard">
-                    <Button variant="ghost" className="text-neutral-400 hover:text-white">
+                    <Button variant="ghost" className="text-neutral-400 hover:text-white cursor-pointer">
                         Gym Owner Login
                     </Button>
                 </Link>
@@ -184,7 +102,7 @@ export default function GymSearch() {
                                             variant="outline"
                                             role="combobox"
                                             aria-expanded={openState}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white"
+                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white cursor-pointer"
                                         >
                                             {state ? state : "All States"}
                                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -240,7 +158,7 @@ export default function GymSearch() {
                                             variant="outline"
                                             role="combobox"
                                             aria-expanded={openCity}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50"
+                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50 cursor-pointer"
                                             disabled={!state && uniqueCities.length === 0}
                                         >
                                             {city ? city : "All Cities"}
@@ -295,7 +213,7 @@ export default function GymSearch() {
                                             variant="outline"
                                             role="combobox"
                                             aria-expanded={openArea}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50"
+                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50 cursor-pointer"
                                             disabled={!city && uniqueAreas.length === 0}
                                         >
                                             {area ? area : "All locality"}
@@ -351,7 +269,7 @@ export default function GymSearch() {
                                     step="500"
                                     value={priceRange}
                                     onChange={(e) => setPriceRange(e.target.value)}
-                                    className="w-full accent-emerald-500"
+                                    className="w-full accent-emerald-500 cursor-pointer"
                                 />
                             </div>
 
@@ -366,7 +284,7 @@ export default function GymSearch() {
                                     step="0.1"
                                     value={minRating}
                                     onChange={(e) => setMinRating(e.target.value)}
-                                    className="w-full accent-amber-500"
+                                    className="w-full accent-amber-500 cursor-pointer"
                                 />
                             </div>
                         </div>
@@ -376,7 +294,7 @@ export default function GymSearch() {
                                 setState(""); setCity(""); setArea(""); setPriceRange("10000"); setMinRating("4.0");
                             }}
                             variant="outline"
-                            className="w-full mt-6 border-white/10 text-neutral-400 hover:text-white hover:bg-white/5"
+                            className="w-full mt-6 border-white/10 text-neutral-400 hover:text-white hover:bg-white/5 cursor-pointer"
                         >
                             Reset Filters
                         </Button>
@@ -435,9 +353,11 @@ export default function GymSearch() {
                                                         <span>{gym.price}</span><span className="text-sm text-neutral-500 font-normal ml-1">/mo</span>
                                                     </div>
                                                 </div>
-                                                <Button className="bg-white/5 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 whitespace-nowrap">
-                                                    View Details
-                                                </Button>
+                                                <Link to={`/gym/${gym.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+                                                    <Button className="bg-white/5 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/20 whitespace-nowrap cursor-pointer">
+                                                        View Details
+                                                    </Button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </motion.div>
