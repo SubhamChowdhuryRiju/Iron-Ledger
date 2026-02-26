@@ -89,6 +89,26 @@ export default function GymSearch() {
             rating: 4.9,
             price: 5000,
             image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1470&auto=format&fit=crop"
+        },
+        {
+            id: 7,
+            name: "Hustle & Muscle",
+            state: "West Bengal",
+            city: "Kolkata",
+            area: "Salt Lake",
+            rating: 4.8,
+            price: 2500,
+            image: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=1470&auto=format&fit=crop"
+        },
+        {
+            id: 8,
+            name: "Iron Core Gym",
+            state: "West Bengal",
+            city: "Kolkata",
+            area: "New Town",
+            rating: 4.5,
+            price: 1500,
+            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1470&auto=format&fit=crop"
         }
     ];
 
@@ -184,7 +204,7 @@ export default function GymSearch() {
                                                             setArea("");
                                                             setOpenState(false);
                                                         }}
-                                                        className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                        className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                     >
                                                         <Check className={cn("mr-2 h-4 w-4", state === "" ? "opacity-100" : "opacity-0")} />
                                                         All States
@@ -199,7 +219,7 @@ export default function GymSearch() {
                                                                 setArea("");
                                                                 setOpenState(false);
                                                             }}
-                                                            className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                            className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                         >
                                                             <Check className={cn("mr-2 h-4 w-4", state === s ? "opacity-100" : "opacity-0")} />
                                                             {s}
@@ -240,7 +260,7 @@ export default function GymSearch() {
                                                             setArea("");
                                                             setOpenCity(false);
                                                         }}
-                                                        className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                        className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                     >
                                                         <Check className={cn("mr-2 h-4 w-4", city === "" ? "opacity-100" : "opacity-0")} />
                                                         All Cities
@@ -254,7 +274,7 @@ export default function GymSearch() {
                                                                 setArea(""); // Reset dependent filter
                                                                 setOpenCity(false);
                                                             }}
-                                                            className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                            className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                         >
                                                             <Check className={cn("mr-2 h-4 w-4", city === c ? "opacity-100" : "opacity-0")} />
                                                             {c}
@@ -268,7 +288,7 @@ export default function GymSearch() {
                             </div>
 
                             <div>
-                                <label className="text-sm font-medium text-neutral-400 block mb-2">Area / Locality</label>
+                                <label className="text-sm font-medium text-neutral-400 block mb-2">Locality</label>
                                 <Popover open={openArea} onOpenChange={setOpenArea}>
                                     <PopoverTrigger asChild>
                                         <Button
@@ -278,15 +298,15 @@ export default function GymSearch() {
                                             className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50"
                                             disabled={!city && uniqueAreas.length === 0}
                                         >
-                                            {area ? area : "All Areas"}
+                                            {area ? area : "All locality"}
                                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                                         </Button>
                                     </PopoverTrigger>
                                     <PopoverContent className="w-[--radix-popover-trigger-width] p-0 bg-neutral-900 border-white/10 text-white">
                                         <Command className="bg-transparent">
-                                            <CommandInput placeholder="Search area..." className="text-white" />
+                                            <CommandInput placeholder="Search locality..." className="text-white" />
                                             <CommandList>
-                                                <CommandEmpty>No area found.</CommandEmpty>
+                                                <CommandEmpty>No locality found.</CommandEmpty>
                                                 <CommandGroup>
                                                     <CommandItem
                                                         value="all"
@@ -294,10 +314,10 @@ export default function GymSearch() {
                                                             setArea("");
                                                             setOpenArea(false);
                                                         }}
-                                                        className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                        className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                     >
                                                         <Check className={cn("mr-2 h-4 w-4", area === "" ? "opacity-100" : "opacity-0")} />
-                                                        All Areas
+                                                        All locality
                                                     </CommandItem>
                                                     {uniqueAreas.map((a) => (
                                                         <CommandItem
@@ -307,7 +327,7 @@ export default function GymSearch() {
                                                                 setArea(currentValue === area ? "" : a);
                                                                 setOpenArea(false);
                                                             }}
-                                                            className="text-white data-[selected='true']:bg-emerald-500/20 data-[selected='true']:text-emerald-400"
+                                                            className="text-white data-[selected=true]:bg-emerald-500 data-[selected=true]:text-white data-[selected='true']:bg-emerald-500 data-[selected='true']:text-white"
                                                         >
                                                             <Check className={cn("mr-2 h-4 w-4", area === a ? "opacity-100" : "opacity-0")} />
                                                             {a}
