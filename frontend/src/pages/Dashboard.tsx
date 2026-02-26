@@ -29,7 +29,7 @@ export default function Dashboard() {
 
       <div className="grid lg:grid-cols-3 gap-8">
         <motion.div
-          className="lg:col-span-2"
+          className="lg:col-span-2 min-w-0"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}

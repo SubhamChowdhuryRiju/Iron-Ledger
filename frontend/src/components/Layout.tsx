@@ -27,7 +27,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       {/* Main Content Area */}
-      <div className="flex-1 md:ml-64 relative min-h-screen overflow-y-auto w-full transition-all duration-300">
+      <div className="flex-1 flex flex-col min-w-0 w-full md:w-auto md:ml-64 relative min-h-screen transition-all duration-300">
         {/* Top Header */}
         <header className="h-16 flex items-center justify-between px-4 md:px-8 border-b border-white/5 bg-black/40 backdrop-blur-xl sticky top-0 z-30">
           <div className="flex items-center gap-4 w-full md:w-96 relative">
@@ -119,7 +119,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </header>
 
         {/* Page Content */}
-        <main className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto overflow-hidden">
+        <main className="p-4 md:p-8 space-y-6 md:space-y-8 w-full max-w-7xl mx-auto flex-1 overflow-x-hidden md:overflow-visible">
           {children}
         </main>
       </div>

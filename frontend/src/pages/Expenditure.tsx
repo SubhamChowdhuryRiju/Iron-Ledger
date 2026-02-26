@@ -40,21 +40,23 @@ export default function Expenditure() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4 }}
-                    className="flex items-center gap-3 w-full md:w-auto"
+                    className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full md:w-auto"
                 >
-                    <div className="relative flex-1 md:w-64">
+                    <div className="relative w-full sm:w-64 sm:flex-1">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
                         <Input
                             placeholder="Search expenses..."
-                            className="pl-10 bg-black/40 border-white/10 text-neutral-200 placeholder:text-neutral-500 focus-visible:ring-emerald-500/50"
+                            className="pl-10 bg-black/40 border-white/10 text-neutral-200 placeholder:text-neutral-500 focus-visible:ring-emerald-500/50 w-full"
                         />
                     </div>
-                    <Button variant="outline" className="border-white/10 bg-black/40 text-neutral-300 hover:bg-white/10 hover:text-white">
-                        <Filter className="h-4 w-4 mr-2" /> Filter
-                    </Button>
-                    <Button className="bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow-[0_0_15px_-3px_rgba(244,63,94,0.4)]">
-                        <Plus className="mr-2 h-4 w-4" /> Add Expense
-                    </Button>
+                    <div className="flex gap-3 w-full sm:w-auto text-nowrap">
+                        <Button variant="outline" className="flex-1 sm:flex-none border-white/10 bg-black/40 text-neutral-300 hover:bg-white/10 hover:text-white">
+                            <Filter className="h-4 w-4 mr-2" /> Filter
+                        </Button>
+                        <Button className="flex-1 sm:flex-none bg-rose-500 hover:bg-rose-600 text-white font-semibold shadow-[0_0_15px_-3px_rgba(244,63,94,0.4)]">
+                            <Plus className="mr-2 h-4 w-4" /> Add Expense
+                        </Button>
+                    </div>
                 </motion.div>
             </div>
 
