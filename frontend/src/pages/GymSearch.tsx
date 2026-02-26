@@ -111,7 +111,7 @@ export default function GymSearch() {
                                         <Command className="bg-transparent">
                                             <CommandInput placeholder="Search state..." className="text-white" />
                                             <CommandList>
-                                                <CommandEmpty>No state found.</CommandEmpty>
+                                                <CommandEmpty className="py-6 text-center text-sm text-neutral-400">No state found.</CommandEmpty>
                                                 <CommandGroup>
                                                     <CommandItem
                                                         value="all"
@@ -167,7 +167,7 @@ export default function GymSearch() {
                                         <Command className="bg-transparent">
                                             <CommandInput placeholder="Search city..." className="text-white" />
                                             <CommandList>
-                                                <CommandEmpty>No city found.</CommandEmpty>
+                                                <CommandEmpty className="py-6 text-center text-sm text-neutral-400">No city found.</CommandEmpty>
                                                 <CommandGroup>
                                                     <CommandItem
                                                         value="all"
@@ -221,7 +221,7 @@ export default function GymSearch() {
                                         <Command className="bg-transparent">
                                             <CommandInput placeholder="Search locality..." className="text-white" />
                                             <CommandList>
-                                                <CommandEmpty>No locality found.</CommandEmpty>
+                                                <CommandEmpty className="py-6 text-center text-sm text-neutral-400">No locality found.</CommandEmpty>
                                                 <CommandGroup>
                                                     <CommandItem
                                                         value="all"
