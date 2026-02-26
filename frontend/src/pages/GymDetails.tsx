@@ -54,7 +54,7 @@ export default function GymDetails() {
                         <img
                             src={gym.image}
                             alt={gym.name}
-                            className="w-full h-[500px] object-cover"
+                            className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
                         />
                     </motion.div>
 

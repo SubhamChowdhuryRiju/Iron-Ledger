@@ -85,8 +85,7 @@ export default function GymSearch() {
                     <motion.div
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.2 }}
-                        className="space-y-6 rounded-2xl border border-white/5 bg-neutral-900/40 backdrop-blur-xl p-6 h-fit sticky top-24 w-full"
+                        className="space-y-6 rounded-2xl border border-white/5 bg-neutral-900/40 backdrop-blur-xl p-6 h-fit lg:sticky lg:top-24 w-full"
                     >
                         <div className="flex items-center gap-2 text-emerald-400 mb-6">
                             <Filter className="h-5 w-5" />
