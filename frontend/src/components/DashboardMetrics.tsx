@@ -50,7 +50,7 @@ export function DashboardMetrics() {
   };
 
   return (
-    <motion.div 
+    <motion.div
       variants={container}
       initial="hidden"
       animate="show"
@@ -60,7 +60,7 @@ export function DashboardMetrics() {
         <motion.div key={index} variants={item}>
           <Card className="bg-neutral-900/50 backdrop-blur-md border border-white/5 shadow-lg relative overflow-hidden group hover:border-emerald-500/30 transition-all duration-300">
             <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-[50px] opacity-20 transition-opacity duration-500 group-hover:opacity-40 ${metric.isPositive ? 'bg-emerald-500' : 'bg-rose-500'} pointer-events-none -mr-10 -mt-10`} />
-            
+
             <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0 relative z-10">
               <CardTitle className="text-sm font-medium text-neutral-400">
                 {metric.title}

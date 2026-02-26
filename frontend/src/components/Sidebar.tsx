@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Dumbbell, LayoutDashboard, Users, CreditCard, CalendarDays, Settings, LogOut } from "lucide-react";
-import { motion } from "framer-motion";
+import { Dumbbell, LayoutDashboard, Users, CreditCard, CalendarDays, Settings, LogOut, Receipt } from "lucide-react";
 import clsx from "clsx";
 
 export function Sidebar() {
@@ -12,6 +11,7 @@ export function Sidebar() {
     { name: "Members", href: "/members", icon: Users },
     { name: "Payments", href: "/payments", icon: CreditCard },
     { name: "Plans", href: "/plans", icon: CalendarDays },
+    { name: "Expenditure", href: "/expenditure", icon: Receipt },
     { name: "Settings", href: "/settings", icon: Settings },
   ];
 
@@ -30,36 +30,28 @@ export function Sidebar() {
 
       {/* Nav Links */}
       <nav className="flex-1 py-6 px-4 space-y-1.5 overflow-y-auto w-full">
-        {navItems.map((item, i) => {
+        {navItems.map((item) => {
           const isActive = currentPath === item.href;
-          
+
           return (
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: i * 0.05 }}
-              key={item.name}
-            >
+            <div key={item.name}>
               <Link
                 to={item.href}
                 className={clsx(
                   "flex items-center gap-3 px-3 py-3 rounded-xl text-sm font-medium transition-all duration-200 group relative",
-                  isActive 
-                    ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20" 
+                  isActive
+                    ? "text-emerald-400 bg-emerald-500/10 border border-emerald-500/20"
                     : "text-neutral-400 hover:text-white hover:bg-white/5 border border-transparent"
                 )}
               >
                 {isActive && (
-                  <motion.div 
-                    className="absolute left-[-16px] top-[15%] h-[70%] w-1 bg-emerald-500 rounded-r-md shadow-[0_0_10px_rgba(16,185,129,0.8)]"
-                    layoutId="activeTabIndicator" 
-                  />
+                  <div className="absolute left-[-16px] top-[15%] h-[70%] w-1 bg-emerald-500 rounded-r-md shadow-[0_0_10px_rgba(16,185,129,0.8)]" />
                 )}
-                
+
                 <item.icon className={clsx("h-5 w-5 transition-transform duration-200", isActive ? "scale-110" : "group-hover:scale-110")} />
                 {item.name}
               </Link>
-            </motion.div>
+            </div>
           );
         })}
       </nav>
