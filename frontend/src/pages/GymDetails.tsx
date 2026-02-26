@@ -20,7 +20,7 @@ export default function GymDetails() {
                 <h1 className="text-3xl font-bold">Gym Not Found</h1>
                 <p className="text-neutral-400">The gym you're looking for doesn't exist.</p>
                 <Link to="/explore">
-                    <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 cursor-pointer">
+                    <Button className="bg-transparent border border-white/10 text-white hover:bg-white/10 cursor-pointer">
                         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Search
                     </Button>
                 </Link>

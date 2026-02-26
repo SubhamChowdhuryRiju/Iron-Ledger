@@ -99,10 +99,9 @@ export default function GymSearch() {
                                 <Popover open={openState} onOpenChange={setOpenState}>
                                     <PopoverTrigger asChild>
                                         <Button
-                                            variant="outline"
                                             role="combobox"
                                             aria-expanded={openState}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white cursor-pointer"
+                                            className="w-full justify-between bg-black/40 border border-white/10 text-white hover:bg-white/10 cursor-pointer text-left"
                                         >
                                             {state ? state : "All States"}
                                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -155,10 +154,9 @@ export default function GymSearch() {
                                 <Popover open={openCity} onOpenChange={setOpenCity}>
                                     <PopoverTrigger asChild>
                                         <Button
-                                            variant="outline"
                                             role="combobox"
                                             aria-expanded={openCity}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50 cursor-pointer"
+                                            className="w-full justify-between bg-black/40 border border-white/10 text-white hover:bg-white/10 disabled:opacity-50 cursor-pointer text-left"
                                             disabled={!state && uniqueCities.length === 0}
                                         >
                                             {city ? city : "All Cities"}
@@ -210,10 +208,9 @@ export default function GymSearch() {
                                 <Popover open={openArea} onOpenChange={setOpenArea}>
                                     <PopoverTrigger asChild>
                                         <Button
-                                            variant="outline"
                                             role="combobox"
                                             aria-expanded={openArea}
-                                            className="w-full justify-between bg-black/40 border-white/10 text-white hover:bg-white/5 hover:text-white disabled:opacity-50 cursor-pointer"
+                                            className="w-full justify-between bg-black/40 border border-white/10 text-white hover:bg-white/10 disabled:opacity-50 cursor-pointer text-left"
                                             disabled={!city && uniqueAreas.length === 0}
                                         >
                                             {area ? area : "All locality"}
@@ -293,8 +290,7 @@ export default function GymSearch() {
                             onClick={() => {
                                 setState(""); setCity(""); setArea(""); setPriceRange("10000"); setMinRating("4.0");
                             }}
-                            variant="outline"
-                            className="w-full mt-6 border-white/10 text-neutral-400 hover:text-white hover:bg-white/5 cursor-pointer"
+                            className="w-full mt-6 bg-transparent border border-white/10 text-neutral-400 hover:text-white hover:bg-white/10 cursor-pointer"
                         >
                             Reset Filters
                         </Button>
