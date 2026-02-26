@@ -1,6 +1,7 @@
 import { Sidebar } from "@/components/Sidebar";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Bell, Search, User, LogOut, MessageSquare, CheckCircle2 } from "lucide-react";
+import { Bell, Search, User, LogOut, MessageSquare, CheckCircle2, Menu } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +16,7 @@ import {
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-neutral-50 flex overflow-hidden selection:bg-emerald-500/30">
@@ -22,18 +24,28 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <div className="fixed top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-900/20 blur-[150px] pointer-events-none" />
       <div className="fixed bottom-[-20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-900/10 blur-[120px] pointer-events-none" />
 
-      <Sidebar />
+      <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
 
       {/* Main Content Area */}
-      <div className="flex-1 ml-64 relative min-h-screen overflow-y-auto">
+      <div className="flex-1 md:ml-64 relative min-h-screen overflow-y-auto w-full transition-all duration-300">
         {/* Top Header */}
-        <header className="h-16 flex items-center justify-between px-8 border-b border-white/5 bg-black/40 backdrop-blur-xl sticky top-0 z-40">
-          <div className="w-96 relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
-            <Input
-              placeholder="Search members, payments..."
-              className="pl-10 bg-white/5 border-white/10 text-neutral-200 placeholder:text-neutral-500 focus-visible:ring-emerald-500/50 focus-visible:bg-white/10 transition-all rounded-full h-10"
-            />
+        <header className="h-16 flex items-center justify-between px-4 md:px-8 border-b border-white/5 bg-black/40 backdrop-blur-xl sticky top-0 z-30">
+          <div className="flex items-center gap-4 w-full md:w-96 relative">
+            {/* Hamburger Menu - Mobile Only */}
+            <button
+              onClick={() => setIsSidebarOpen(true)}
+              className="md:hidden text-neutral-400 hover:text-white p-2 rounded-md hover:bg-white/10 transition-colors cursor-pointer shrink-0"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
+
+            <div className="relative w-full">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-neutral-500" />
+              <Input
+                placeholder="Search members, payments..."
+                className="pl-10 bg-white/5 border-white/10 text-neutral-200 placeholder:text-neutral-500 focus-visible:ring-emerald-500/50 focus-visible:bg-white/10 transition-all rounded-full h-10 w-full"
+              />
+            </div>
           </div>
 
           <div className="flex items-center gap-4">
@@ -107,7 +119,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </header>
 
         {/* Page Content */}
-        <main className="p-8 space-y-8 max-w-7xl mx-auto">
+        <main className="p-4 md:p-8 space-y-6 md:space-y-8 max-w-7xl mx-auto overflow-hidden">
           {children}
         </main>
       </div>

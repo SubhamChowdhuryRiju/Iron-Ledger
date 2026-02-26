@@ -59,48 +59,50 @@ export function RecentActivity() {
           </p>
         </div>
       </div>
-      <Table>
-        <TableHeader className="bg-black/40">
-          <TableRow className="border-white/5 hover:bg-transparent">
-            <TableHead className="text-neutral-500 font-medium">Invoice ID</TableHead>
-            <TableHead className="text-neutral-500 font-medium">Member Name</TableHead>
-            <TableHead className="text-neutral-500 font-medium">Status</TableHead>
-            <TableHead className="text-neutral-500 font-medium whitespace-nowrap">Date & Time</TableHead>
-            <TableHead className="text-neutral-500 font-medium text-right">Amount</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {recentPayments.map((payment) => (
-            <TableRow
-              key={payment.id}
-              className="border-white/5 hover:bg-white/[0.02] transition-colors cursor-pointer group/row"
-            >
-              <TableCell className="font-medium text-neutral-300 group-hover/row:text-emerald-400 transition-colors">
-                {payment.id}
-              </TableCell>
-              <TableCell className="text-neutral-300">{payment.name}</TableCell>
-              <TableCell>
-                <Badge
-                  variant="outline"
-                  className={
-                    payment.status === "Paid"
-                      ? "border-emerald-500/30 text-emerald-400 bg-emerald-500/10 shadow-[0_0_10px_-2px_rgba(16,185,129,0.2)]"
-                      : payment.status === "Pending"
-                        ? "border-amber-500/30 text-amber-400 bg-amber-500/10 shadow-[0_0_10px_-2px_rgba(245,158,11,0.2)]"
-                        : "border-rose-500/30 text-rose-400 bg-rose-500/10 shadow-[0_0_10px_-2px_rgba(244,63,94,0.2)]"
-                  }
-                >
-                  {payment.status}
-                </Badge>
-              </TableCell>
-              <TableCell className="text-neutral-500 text-sm">{payment.date}</TableCell>
-              <TableCell className="text-right font-medium text-neutral-100 group-hover/row:text-emerald-300 transition-colors">
-                {payment.amount}
-              </TableCell>
+      <div className="overflow-x-auto">
+        <Table>
+          <TableHeader className="bg-black/40">
+            <TableRow className="border-white/5 hover:bg-transparent">
+              <TableHead className="text-neutral-500 font-medium">Invoice ID</TableHead>
+              <TableHead className="text-neutral-500 font-medium">Member Name</TableHead>
+              <TableHead className="text-neutral-500 font-medium">Status</TableHead>
+              <TableHead className="text-neutral-500 font-medium whitespace-nowrap">Date & Time</TableHead>
+              <TableHead className="text-neutral-500 font-medium text-right">Amount</TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {recentPayments.map((payment) => (
+              <TableRow
+                key={payment.id}
+                className="border-white/5 hover:bg-white/[0.02] transition-colors cursor-pointer group/row"
+              >
+                <TableCell className="font-medium text-neutral-300 group-hover/row:text-emerald-400 transition-colors whitespace-nowrap">
+                  {payment.id}
+                </TableCell>
+                <TableCell className="text-neutral-300 whitespace-nowrap">{payment.name}</TableCell>
+                <TableCell>
+                  <Badge
+                    variant="outline"
+                    className={
+                      payment.status === "Paid"
+                        ? "border-emerald-500/30 text-emerald-400 bg-emerald-500/10 shadow-[0_0_10px_-2px_rgba(16,185,129,0.2)]"
+                        : payment.status === "Pending"
+                          ? "border-amber-500/30 text-amber-400 bg-amber-500/10 shadow-[0_0_10px_-2px_rgba(245,158,11,0.2)]"
+                          : "border-rose-500/30 text-rose-400 bg-rose-500/10 shadow-[0_0_10px_-2px_rgba(244,63,94,0.2)]"
+                    }
+                  >
+                    {payment.status}
+                  </Badge>
+                </TableCell>
+                <TableCell className="text-neutral-500 text-sm whitespace-nowrap">{payment.date}</TableCell>
+                <TableCell className="text-right font-medium text-neutral-100 group-hover/row:text-emerald-300 transition-colors whitespace-nowrap">
+                  {payment.amount}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 }
